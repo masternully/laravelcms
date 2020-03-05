@@ -12,8 +12,8 @@
 */
 
 Route::get('/', function () {
-    return view('layouts.app');
-});
+    return view('welcome');
+})->name('home');
 
 Auth::routes();
 
