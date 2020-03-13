@@ -109,13 +109,13 @@
 <script src="{{ asset('assets/backend/js/demo.js') }}"></script>
 <script src="https://cdn.bootcss.com/toastr.js/latest/js/toastr.min.js"></script>
         {!! Toastr::message() !!}
-<script>
+        <script>
     @if($errors->any())
         @foreach($errors->all() as $error)
-            toast.error('{{ $error }}', 'Error', {
-                closeButton:true,
-                progressBar:true,
-            });
+              toastr.error('{{ $error }}','Error',{
+                  closeButton:true,
+                  progressBar:true,
+               });
         @endforeach
     @endif
 </script>

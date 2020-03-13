@@ -24,14 +24,9 @@
 						<div class="footer-section">
 						<h4 class="title"><b>CATAGORIES</b></h4>
 						<ul>
-							<li><a href="#">BEAUTY</a></li>
-							<li><a href="#">HEALTH</a></li>
-							<li><a href="#">MUSIC</a></li>
-						</ul>
-						<ul>
-							<li><a href="#">SPORT</a></li>
-							<li><a href="#">DESIGN</a></li>
-							<li><a href="#">TRAVEL</a></li>
+							@foreach($categories as $category)
+							<li><a href="{{route('category.posts', $category->slug)}}">{{$category->name}}</a></li>
+							@endforeach
 						</ul>
 					</div><!-- footer-section -->
 				</div><!-- col-lg-4 col-md-6 -->
@@ -41,8 +36,9 @@
 
 						<h4 class="title"><b>SUBSCRIBE</b></h4>
 						<div class="input-area">
-							<form>
-								<input class="email-input" type="text" placeholder="Enter your email">
+							<form method="POST" action="{{ route('subscriber.store') }}">
+								@csrf
+								<input name="email" class="email-input" type="text" placeholder="Enter your email">
 								<button class="submit-btn" type="submit"><i class="icon ion-ios-email-outline"></i></button>
 							</form>
 						</div>
